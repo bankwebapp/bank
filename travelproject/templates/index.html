@@ -1,0 +1,238 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>About us</title>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="description" content="Travello template project">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<link rel="stylesheet" type="text/css" href="{% static 'styles/bootstrap4/bootstrap.min.css' %}">
+<link href="{% static 'plugins/font-awesome-4.7.0/css/font-awesome.min.css' %}" rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" href="{% static 'plugins/OwlCarousel2-2.2.1/owl.carousel.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'plugins/OwlCarousel2-2.2.1/owl.theme.default.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'plugins/OwlCarousel2-2.2.1/animate.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'styles/about.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'styles/about_responsive.css' %}">
+</head>
+<body>
+
+<div class="super_container">
+	
+	<!-- Header -->
+
+	<header class="header">
+		<div class="container">
+			<div class="row">
+				<div class="col">
+					<div class="header_content d-flex flex-row align-items-center justify-content-start">
+						<div class="header_content_inner d-flex flex-row align-items-end justify-content-start">
+							<div class="logo"><a href="#">My Bank</a></div>
+							<nav class="navbar navbar-expand-lg navbar-dark shadow-5-strong">
+								  <a class="navbar-brand" href="#"></a>
+								  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+									<span class="navbar-toggler-icon"></span>
+								  </button>
+								  <div class="collapse navbar-collapse" id="navbarNavDropdown">
+									<ul class="navbar-nav">
+									  <li class="nav-item active">
+										<a class="nav-link" href="#">Home<span class="sr-only">(current)</span></a>
+									  </li>
+									  <li class="nav-item">
+									  {% if user.is_authenticated %}
+										  	<a class="nav-link" href="cred/gotoform"></a>
+											<a class="nav-link" href="cred/logout">Logout</a>
+<!--										<div class="button about_button"><a href="cred/form">Form</a></div>-->
+									  </li>
+									  {% else %}
+									  <li class="nav-item">
+										<a class="nav-link" href="cred/register">Register</a>
+									  </li>
+									  <li class="nav-item">
+										<a class="nav-link" href="cred/login">Login</a>
+									  </li>
+									  {% endif %}
+									  <li class="nav-item dropdown">
+										<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+										  Branches
+										</a>
+										<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+										  <a class="dropdown-item" href="https://en.wikipedia.org/wiki/Thiruvananthapuram">Thiruvananthapuram</a>
+										  <a class="dropdown-item" href="https://en.wikipedia.org/wiki/Ernakulam_district">Ernakulam</a>
+										  <a class="dropdown-item" href="https://en.wikipedia.org/wiki/Kollam">Kollam</a>
+										  <a class="dropdown-item" href="https://en.wikipedia.org/wiki/Kottayam">Kottayam</a>
+										  <a class="dropdown-item" href="https://en.wikipedia.org/wiki/Alappuzha">Alappuzha</a>
+										</div>
+									  </li>
+									</ul>
+								  </div>
+							</nav>
+
+
+							<!-- Hamburger -->
+
+<!--							<div class="hamburger ml-auto">-->
+<!--								<i class="fa fa-bars" aria-hidden="true"></i>-->
+<!--							</div>-->
+
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+<!--		<div class="header_social d-flex flex-row align-items-center justify-content-start">-->
+<!--			<ul class="d-flex flex-row align-items-start justify-content-start">-->
+<!--				<li><a href="#"><i class="fa fa-pinterest" aria-hidden="true"></i></a></li>-->
+<!--				<li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>-->
+<!--				<li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>-->
+<!--				<li><a href="#"><i class="fa fa-dribbble" aria-hidden="true"></i></a></li>-->
+<!--				<li><a href="#"><i class="fa fa-behance" aria-hidden="true"></i></a></li>-->
+<!--				<li><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>-->
+<!--			</ul>-->
+<!--		</div>-->
+	</header>
+
+	<!-- Menu -->
+
+<!--	<div class="menu">-->
+<!--		<div class="menu_header d-flex flex-row align-items-center justify-content-start">-->
+<!--			<div class="menu_logo"><a href="index.html">Travello</a></div>-->
+<!--			<div class="menu_close_container ml-auto"><div class="menu_close"><div></div><div></div></div></div>-->
+<!--		</div>-->
+<!--		<div class="menu_content">-->
+<!--			<ul>-->
+<!--				<li><a href="index.html">Home</a></li>-->
+<!--				<li><a href="about.html">About us</a></li>-->
+<!--				<li><a href="#">Services</a></li>-->
+<!--				<li><a href="news.html">News</a></li>-->
+<!--				<li><a href="contact.html">Contact</a></li>-->
+<!--			</ul>-->
+<!--		</div>-->
+<!--		<div class="menu_social">-->
+<!--			<div class="menu_phone ml-auto">Call us: 00-56 445 678 33</div>-->
+<!--			<ul class="d-flex flex-row align-items-start justify-content-start">-->
+<!--				<li><a href="#"><i class="fa fa-pinterest" aria-hidden="true"></i></a></li>-->
+<!--				<li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>-->
+<!--				<li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>-->
+<!--				<li><a href="#"><i class="fa fa-dribbble" aria-hidden="true"></i></a></li>-->
+<!--				<li><a href="#"><i class="fa fa-behance" aria-hidden="true"></i></a></li>-->
+<!--				<li><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>-->
+<!--			</ul>-->
+<!--		</div>-->
+<!--	</div>-->
+	
+	<!-- Home -->
+
+	<div class="home">
+		<div class="background_image" style="background-image:url({% static 'images/my_bank.jpg' %})"></div>
+	</div>
+
+
+	<!-- About -->
+
+	<div class="about">
+		<div class="container">
+			<div class="row">
+				<div class="col text-center">
+					<div class="section_subtitle">Banking made easy</div>
+					<div class="section_title"><h2>A few words about us</h2></div>
+				</div>
+			</div>
+			<div class="row about_row">
+				<div class="col-lg-6">
+					<div class="about_content">
+						<div class="text_highlight">Pellentesque sit amet elementum ccumsan sit amet mattis eget, tristique at leo. Vivamus massa.Tempor massa et laoreet .Lorem ipsum dolor sit amet, consectetur adipiscing elit.</div>
+						<div class="about_text">
+							<p>Pellentesque sit amet elementum ccumsan sit amet mattis eget, tristique at leo. Vivamus massa.Tempor massa et laoreet .Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eu laoreet ante, sollicitudin volutpat quam. Vestibulum posuere malesuada ultrices. In pulvinar rhoncus lacus at aliquet. Nunc vitae lacus varius, auctor nisi sit amet, consectetur mauris. Curabitur sodales semper est, vel faucibus urna laoreet vel. Ut justo diam, sodales non pulvinar at, vulputate quis neque. Etiam aliquam purus vel ultricies consequat.</p>
+						</div>
+						<div class="button about_button"><a href="#">read more</a></div>
+					</div>
+				</div>
+				<div class="col-lg-6">
+					<div class="about_image"><img src="{% static 'images/abou.jpg' %}" alt=""></div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+				
+				<!-- Why item -->
+				{% for i in result %}
+				<div class="col-lg-4 why_col">
+					<div class="why_item">
+						<div class="why_image">
+							<img src="{{i.img.url}}" alt="">
+							<div class="why_icon d-flex flex-column align-items-center justify-content-center">
+								<img src="{% static 'images/why_1.svg' %}" alt="">
+							</div>
+						</div>
+						<div class="why_content text-center">
+							<div class="why_title">{{i.name}}</div>
+							<div class="why_text">
+								<p>{{i.desc}}</p>
+							</div>
+						</div>
+					</div>
+				</div>
+				{% endfor %}
+
+
+				</div>
+
+<!--			</div>-->
+<!--		</div>-->
+<!--	</div>-->
+
+	<!-- Team -->
+
+	<div class="team">
+		<div class="container">
+			<div class="row">
+				<div class="col text-center">
+					<div class="section_subtitle">People behind our success story</div>
+					<div class="section_title"><h2>Meet the Team</h2></div>
+				</div>
+			</div>
+			<div class="row team_row">
+				
+				<!-- Team Item -->
+                {% for j in outpic %}
+				<div class="col-xl-3 col-md-6 team_col">
+					<div class="team_item d-flex flex-column align-items-center justify-content-start text-center">
+						<div class="team_image"><img src="{{j.images.url}}" alt=""></div>
+						<div class="team_content">
+							<div class="team_title"><a href="#">{{j.names}}</a></div>
+							<div class="team_text">
+								<p>{{j.details}}</p>
+							</div>
+						</div>
+					</div>
+				</div>
+                {% endfor %}
+
+
+			</div>
+		</div>
+	</div>
+
+	<!-- Footer -->
+
+
+<!--<script src="{% static 'js/jquery-3.2.1.min.js' %}"></script>-->
+<!--<script src="{% static 'styles/bootstrap4/popper.js' %}"></script>-->
+<!--<script src="{% static 'styles/bootstrap4/bootstrap.min.js' %}"></script>-->
+<!--<script src="{% static 'plugins/greensock/TweenMax.min.js' %}"></script>-->
+<!--<script src="{% static 'plugins/greensock/TimelineMax.min.js' %}"></script>-->
+<!--<script src="{% static 'plugins/scrollmagic/ScrollMagic.min.js' %}"></script>-->
+<!--<script src="{% static 'plugins/greensock/animation.gsap.min.js' %}"></script>-->
+<!--<script src="{% static 'plugins/greensock/ScrollToPlugin.min.js' %}"></script>-->
+<!--<script src="{% static 'plugins/OwlCarousel2-2.2.1/owl.carousel.js' %}"></script>-->
+<!--<script src="{% static 'plugins/easing/easing.js' %}"></script>-->
+<!--<script src="{% static 'plugins/parallax-js-master/parallax.min.js' %}"></script>-->
+<!--<script src="{% static 'js/about.js' %}"></script>-->
+<!-</body>
+<!-</html>

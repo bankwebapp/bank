@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+<script>
+var subjectObject = {
+  "Thiruvananthapuram": {
+    "Kanjirampara": ["current","savings"],
+    "Pattom": ["current","savings"],
+    "Vithura": ["current","savings"]
+  },
+  "Kottayam": {
+    "Pala": ["current","savings"],
+    "kanjikuzhy": ["current","savings"],
+    "Kurichy": ["current","savings"]
+  }
+}
+window.onload = function() {
+  var subjectSel = document.getElementById("subject");
+  var topicSel = document.getElementById("topic");
+  var chapterSel = document.getElementById("chapter");
+  for (var x in subjectObject) {
+    subjectSel.options[subjectSel.options.length] = new Option(x, x);
+  }
+  subjectSel.onchange = function() {
+    //empty Chapters- and Topics- dropdowns
+    chapterSel.length = 1;
+    topicSel.length = 1;
+    //display correct values
+    for (var y in subjectObject[this.value]) {
+      topicSel.options[topicSel.options.length] = new Option(y, y);
+    }
+  }
+  topicSel.onchange = function() {
+    //empty Chapters dropdown
+    chapterSel.length = 1;
+    //display correct values
+    var z = subjectObject[subjectSel.value][this.value];
+    for (var i = 0; i < z.length; i++) {
+      chapterSel.options[chapterSel.options.length] = new Option(z[i], z[i]);
+    }
+  }
+}
+</script>
+
+    <title>Title</title>
+</head>
+<body style="background-color:#C39BD3;">
+<h2>Registration Form</h2>
+<form action="form" method="post" onsubmit="done.html" action="/action_page.php">
+    {% csrf_token %}
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name"><br><br>
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" ><br><br>
+    <label for="dob">DOB:</label>
+    <input type="date" id="dob" name="dob"><br><br>
+    <label for="age">Age:</label>
+    <input type="number" id="age" name="age"><br><br>
+    <label>Gender:</label>
+    <input type="checkbox" id="gender1" name="gender1" value="Female">
+    <label for="gender1"> Female</label><br>
+    <input type="checkbox" id="gender2" name="gender2" value="Male">
+    <label for="gender2"> Male</label><br><br>
+    <label for="phone">Phone:</label>
+    <input type="number" id="phone" name="phone"><br><br>
+    <label for="address">Address:</label>
+    <input type="text" id="address" name="address"><br><br>
+
+    District: <select name="subject" id="subject">
+    <option value="" selected="selected">Select District</option>
+            </select>
+  <br><br>
+    Branch: <select name="topic" id="topic">
+    <option value="" selected="selected">select city</option>
+        </select>
+  <br><br>
+    Account: <select name="chapter" id="chapter">
+    <option value="" selected="selected">select type</option>
+        </select>
+   <br><br>
+    <label>Materials Required:</label><br>
+    <input type="checkbox" id="materials1" name="materials1" value="Credit">
+    <label for="materials1"> Credit</label>
+    <input type="checkbox" id="materials2" name="materials2" value="Debit">
+    <label for="materials2"> Debit</label>
+    <input type="checkbox" id="materials3" name="materials3" value="Chequebook">
+    <label for="materials3"> Chequebook</label><br><br>
+
+    <button><a href="done">Submit</a></button>
+    <button><a href="logout">logout</a></button>
